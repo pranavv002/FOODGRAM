@@ -1,6 +1,6 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import UserModel from "../models/User.js"; 
 
 const router = express.Router(); // ✅ Fixed missing router declaration
