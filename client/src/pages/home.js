@@ -8,7 +8,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("https://mern-recipe-app1-server.onrender.com/recipes");
+        const response = await axios.get("https://foodgram-xap1.onrender.com/recipes");
         setRecipes(response.data);
       } catch (err) {
         console.log(err);
