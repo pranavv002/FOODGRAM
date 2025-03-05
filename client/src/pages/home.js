@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await axios.get("https://foodgram-xap1.onrender.com/recipes");
+        console.log("Fetched Recipes:", response.data);
         setRecipes(response.data);
       } catch (err) {
         console.log(err);
@@ -30,7 +34,7 @@ export const Home = () => {
                 <Card.Body>
                   <Card.Title>{recipe.name}</Card.Title>
                   <Card.Text>{recipe.description}</Card.Text>
-                  <Button variant="primary">View Recipe</Button>
+                  <Button variant="primary" onClick={() => navigate(`/recipe/${recipe._id}`)}>View Recipe</Button>
                 </Card.Body>
               </Card>
             </Col>

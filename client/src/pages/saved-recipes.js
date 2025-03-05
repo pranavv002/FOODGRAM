@@ -10,7 +10,7 @@ export const SavedRecipes = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `https://foodgram-xap1.onrender.com/recipes/savedRecipes/${userID}`
+          "https://foodgram-xap1.onrender.com/recipes/savedRecipes/${userID}"
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (err) {
